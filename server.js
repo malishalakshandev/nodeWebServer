@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const port = process.env.PORT || 3000; // GET THE PORT ENVIRONMENT. IF PORT NOT EXIST GET 3000
 var app = express();
 
 // REGISTER A PARTIAL TEMPLATE FOLDER
@@ -68,12 +69,10 @@ app.get('/bad', (req, res) => {
 });
 
 
-
-
-app.listen(3000, () => {
-  console.log('Server is up on port 3000');
+// HERE ADD PORT FROM GETTING ENV BY REMOVING STATIC PORT PREVIOUSLY USED(3000). BUT IF PORT NOT EXIST AT ENV, THE PORT 3000 WILL ASSIGN
+app.listen(port, () => {
+  console.log(`Server is up on port ${port}`);
 });
-
 
 
 /*
